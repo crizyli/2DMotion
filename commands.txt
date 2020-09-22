@@ -1,0 +1,14 @@
+// slice video
+ffmpeg -i hunhe.mp4 -vf fps=29.3 -vsync 0 -frame_pts 1 z%d.jpg
+
+//open pose extract 2d keypoints
+bin\OpenPoseDemo.exe --image_dir examples\bodymotion --write_images examples\bodymotion\processed --write_json examples\bodymotion\2d_keypoints --disable_blending
+
+bin\OpenPoseDemo.exe --video examples\media\bodymotion.mp4 --write_video examples\media\bodymotion_processed.avi --disable_blending
+
+bin\OpenPoseDemo.exe --image_dir examples\action1 --write_images examples\action1\processed --write_json examples\action1\2d_keypoints --disable_blending
+
+bin\OpenPoseDemo.exe --image_dir examples\hunhe --write_images examples\hunhe\processed --write_json examples\hunhe\2d_keypoints_hunhe --disable_blending
+
+
+./build/examples/openpose/openpose.bin --video examples/media/bodymotion_Trim.mp4 --write_video examples/media/bodymotion_trim_processed.avi --disable_blending

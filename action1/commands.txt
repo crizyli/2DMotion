@@ -1,0 +1,18 @@
+// slice video
+ffmpeg -i action2.mp4 -vf fps=34.5 -vsync 0 -frame_pts 1 z%d.jpg
+
+//open pose extract 2d keypoints
+bin\OpenPoseDemo.exe --image_dir examples\image --write_images examples\image\processed --write_json examples\image\2d_keypoints --disable_blending
+
+bin\OpenPoseDemo.exe --image_dir examples\lefthand --write_images examples\lefthand\processed --write_json examples\lefthand\2d_keypoints --disable_blending
+
+bin\OpenPoseDemo.exe --image_dir examples\bodymotion --write_images examples\bodymotion\processed --write_json examples\bodymotion\2d_keypoints --disable_blending
+
+bin\OpenPoseDemo.exe --video examples\media\bodymotion.mp4 --write_video examples\media\bodymotion_processed.avi --disable_blending
+
+bin\OpenPoseDemo.exe --image_dir examples\action1 --write_images examples\action1\processed_a1 --write_json examples\action1\2d_keypoints_a1 --disable_blending
+
+bin\OpenPoseDemo.exe --image_dir examples\action2 --write_images examples\action2\processed_a2 --write_json examples\action2\2d_keypoints_a2 --disable_blending
+
+
+./build/examples/openpose/openpose.bin --video examples/media/bodymotion_Trim.mp4 --write_video examples/media/bodymotion_trim_processed.avi --disable_blending
